@@ -1,4 +1,4 @@
-# Project Name #
+# HypeFriends #
 
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
@@ -31,14 +31,19 @@ Once the project moves into development, the press release can be used as a touc
 ## Problem ##
   Describe the problem your product solves.
   > Hypem's music player doesn't allow you to download or directly access the song.
+
   > Hypem doesn't show you music videos.
+
   > Hypem doesn't let you curate favorites from multiple users. 
+
   > Let's people that don't use hypem access a user friendly UI. 
 
 ## Solution ##
   Describe how your product elegantly solves the problem.
   > Displays the last 10 favorites from a selected user.
+
   > Shows information on the artist, tour dates, displays music video / link to spotify / soundcloud / hypem
+
   > Displays the last 10 favorites from multiple users. 
 
 ## Quote from You ##
