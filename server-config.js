@@ -10,7 +10,7 @@ var Friend = require('./App/Models/Friend.js');
 // Path to help express server public files
 var path = require('path');
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client')));
 
 
 
