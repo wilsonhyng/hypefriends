@@ -13,6 +13,23 @@ var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+
+
+
+app.get('/cool', (req, res) => {
+  console.log('hello');
+  var me = new Friend({friend: 'wily8'});
+  console.log(me);
+  me.save((err, friend) => {
+    if (err) {
+      console.log(err);
+    } 
+    console.log('Friend saved!');
+  });
+  res.status(201).redirect('/');
+});
+
+
 // var me = new Friend({friend: 'wily7'});
 // console.log(me);
 // me.save((err, friend) => {
