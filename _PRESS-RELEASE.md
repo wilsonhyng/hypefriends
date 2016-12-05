@@ -17,42 +17,42 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
-      HypeFriends
+  Name the product in a way the reader (i.e. your target customers) will understand.
+  > HypeFriends
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
-      For music enthusiasts and their friends.  
+  Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+  > For music enthusiasts and their friends.  
 
 ## Summary ##
-  > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
-      Keep track of the lastest favorites from 653 handpicked music blogs from your favorite friends! 
+  Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+  > Keep track of the lastest favorites from 653 handpicked music blogs from your favorite friends! 
 
 ## Problem ##
-  > Describe the problem your product solves.
-      Hypem's music player doesn't allow you to download or directly access the song.
-      Hypem doesn't show you music videos.
-      Hypem doesn't let you curate favorites from multiple users. 
-      Let's people that don't use hypem access a user friendly UI. 
+  Describe the problem your product solves.
+  > Hypem's music player doesn't allow you to download or directly access the song.
+  > Hypem doesn't show you music videos.
+  > Hypem doesn't let you curate favorites from multiple users. 
+  > Let's people that don't use hypem access a user friendly UI. 
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
-      Displays the last 10 favorites from a selected user.
-        Shows information on the artist, tour dates, displays music video / link to spotify / soundcloud / hypem
-      Displays the last 10 favorites from multiple users. 
+  Describe how your product elegantly solves the problem.
+  > Displays the last 10 favorites from a selected user.
+  > Shows information on the artist, tour dates, displays music video / link to spotify / soundcloud / hypem
+  > Displays the last 10 favorites from multiple users. 
 
 ## Quote from You ##
-  > A quote from a spokesperson in your company.
+  A quote from a spokesperson in your company.
+  > I just want to find and share music I love with my friends. 
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
-      Just type in your friend's HYPEM username and get their latest favorites. 
+  Describe how easy it is to get started.
+  > Just type in your friend's HYPEM username and get their latest favorites. 
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-      I've never heard of any of these artists. How?! Love all these new songs.  
+  Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > I've never heard of any of these artists. How?! Love all these new songs.  
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
-      Checkout HYPEfriends.com and start discovering your new favorite artists!
-
+  Wrap it up and give pointers where the reader should go next.
+  > Checkout HYPEfriends.com and start discovering your new favorite artists!
