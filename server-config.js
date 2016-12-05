@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 
 
-app.get('/cool', (req, res) => {
+app.get('/addFriend', (req, res) => {
   console.log('hello');
   var me = new Friend({friend: 'wily8'});
   console.log(me);

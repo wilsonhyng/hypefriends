@@ -61,6 +61,14 @@
 	
 	var _AwesomeComponent2 = _interopRequireDefault(_AwesomeComponent);
 	
+	var _GetAPI = __webpack_require__(/*! ./components/GetAPI.jsx */ 179);
+	
+	var _GetAPI2 = _interopRequireDefault(_GetAPI);
+	
+	var _AddFriend = __webpack_require__(/*! ./components/AddFriend.jsx */ 180);
+	
+	var _AddFriend2 = _interopRequireDefault(_AddFriend);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -89,7 +97,21 @@
 	          null,
 	          ' Hello React!! COOOOL'
 	        ),
-	        _react2.default.createElement(_AwesomeComponent2.default, null)
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_AwesomeComponent2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_GetAPI2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_AddFriend2.default, null)
+	        )
 	      );
 	    }
 	  }]);
@@ -22112,6 +22134,64 @@
 	}(_react2.default.Component);
 	
 	exports.default = AwesomeComponent;
+
+/***/ },
+/* 179 */
+/*!******************************************!*\
+  !*** ./client/app/components/GetAPI.jsx ***!
+  \******************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var GetAPI = function GetAPI() {
+	    return _react2.default.createElement(
+	        'a',
+	        { href: '/getAPI' },
+	        'Get API'
+	    );
+	};
+	
+	exports.default = GetAPI;
+
+/***/ },
+/* 180 */
+/*!*********************************************!*\
+  !*** ./client/app/components/AddFriend.jsx ***!
+  \*********************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var AddFriend = function AddFriend() {
+	    return _react2.default.createElement(
+	        'a',
+	        { href: '/addFriend' },
+	        'Add Friend'
+	    );
+	};
+	
+	exports.default = AddFriend;
 
 /***/ }
 /******/ ]);
