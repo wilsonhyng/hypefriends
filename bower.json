@@ -1,0 +1,14 @@
+{
+  "name": "hrsf51-mvp",
+  "homepage": "https://github.com/wilsonhyng/hrsf51-mvp",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
