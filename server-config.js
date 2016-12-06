@@ -1,5 +1,6 @@
 var express = require('express');
 var request = require('request');
+var Promise = require('bluebird');
 var app = express();
 
 
@@ -35,7 +36,24 @@ app.post('/addFriend', (req, res) => {
   var url = 'https://api.hypem.com/v2/users/' + username.friend + '/favorites?page=1&count=10&key=swagger';  
 
   request.get(url, (error, response, body) => {
-    res.send(JSON.parse(body));
+    if (!error && response.statusCode === 200) {
+      res.send(JSON.parse(body));
+
+      var me = new Friend(username);
+      console.log(me);
+      me.save((err, friend) => {
+        if (err) {
+          console.log(err);
+        } 
+        console.log('Friend saved!');
+      });
+
+
+    } else {
+      console.log('No username');
+      res.redirect('/');
+      return;
+    }
   });
 
 

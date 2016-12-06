@@ -7,7 +7,6 @@ const AddFriend = () => (
 
 
     <form action='/addFriend' method='post'>
-
       <input name="friend" defaultValue="wily6"></input>
       <button>Add a Friend</button>
     </form>
