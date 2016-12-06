@@ -22184,10 +22184,22 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	var AddFriend = function AddFriend() {
-	    return _react2.default.createElement(
-	        'a',
-	        { href: '/addFriend' },
-	        'Add Friend'
+	    return (
+	
+	        // <a href='/addFriend'>Add Friend</a>
+	        // html button
+	
+	
+	        _react2.default.createElement(
+	            'form',
+	            { action: '/addFriend', method: 'post' },
+	            _react2.default.createElement('input', { name: 'friend', defaultValue: 'wily6' }),
+	            _react2.default.createElement(
+	                'button',
+	                null,
+	                'Add a Friend'
+	            )
+	        )
 	    );
 	};
 	
