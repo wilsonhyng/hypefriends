@@ -3,7 +3,7 @@
 
 // const DisplayFriends = () => (
 
-//     // <a href='/DisplayFriends'>Display Friends</a>
+//     <a href='/DisplayFriends'>Display Friends</a>
 
     
 

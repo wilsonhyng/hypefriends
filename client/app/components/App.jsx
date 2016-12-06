@@ -6,7 +6,7 @@ import AwesomeComponent from './AwesomeComponent.jsx';
 import GetAPI from './GetAPI.jsx';
 
 import AddFriend from './AddFriend.jsx';
-import DisplayFriends from './DisplayFriends.jsx';
+// import DisplayFriends from './DisplayFriends.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -18,10 +18,8 @@ class App extends React.Component {
 
   componentDidMount() {
     axios.post('/displayFriends')
-    // see how you can pass in a user generated username
       .then((response) => {
         const friends = response.data;
-        // console.log(friends);
         let keys = Object.keys(response.data);
         let friendArray = [];
         let friendsString = [];
@@ -31,42 +29,48 @@ class App extends React.Component {
         for (var j = 0; j < friendArray.length; j++) {
           friendsString.push(friendArray[j].friend);
         }
-
         this.setState({friends: friendsString});
-
-
-        // this.setState({ friends });
-        // // console.log(this.state.friends);
-        // console.log(this.state.friends);
       });
+  }
+
+
+  // componentWillReceiveProps()
+
+  updateFriends(newFriends) {
+    this.setState({
+      friends: newFriends
+    });
   }
 
   render () {
     return (
-      <div>
+      <div className='row'>
       
-      <div className='col-xs-4'>
-        <img id='hypemlogo' src='../hypem.png'></img>
-      </div>
-
-      <div className='col-xs-4'>
-        <h1>HypeFriends</h1>
-      </div>
-
-
-      <div className='col-xs-4' id='friends'>
-        <h3>Friends</h3>
-        <div>
-          {this.state.friends.map(friend => 
-                <div>{friend}</div>)
-            }
+        <div className='col-xs-4'>
+          <img id='hypemlogo' src='../hypem.png'></img>
         </div>
-      </div>
+
+        <div className='col-xs-4'>
+          <h1>HypeFriends</h1>
+        </div>
 
 
-      <div id='addFriend'>
-        <AddFriend />
-      </div>
+        <div className='col-xs-4'>
+          <h3>Friends</h3>
+          <div className='text-center friends'>
+            {this.state.friends.map(friend => 
+                  <div className='eachFriend'>{friend}</div>)
+              }
+          </div>
+        </div>
+
+
+        <div id='addFriend'>
+          <AddFriend 
+          friends={this.state.friends}
+          updateFriends={this.updateFriends.bind(this)}
+          />
+        </div>
 
       </div>
     );

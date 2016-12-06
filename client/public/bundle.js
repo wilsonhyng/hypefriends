@@ -22182,8 +22182,35 @@
 	          var favorites = response.data;
 	          _this2.setState({ favorites: favorites });
 	          var displayFriend = _this2.state.value;
-	          console.log(displayFriend);
+	          // console.log(displayFriend);
 	          _this2.setState({ currentFriend: displayFriend });
+	
+	          _axios2.default.post('/displayFriends').then(function (response) {
+	            var friends = response.data;
+	            var keys = Object.keys(response.data);
+	            var friendArray = [];
+	            var friendsString = [];
+	            for (var i = 0; i < keys.length; i++) {
+	              friendArray.push(response.data[keys[i]]);
+	            }
+	            for (var j = 0; j < friendArray.length; j++) {
+	              friendsString.push(friendArray[j].friend);
+	            }
+	
+	            // let friendState = this.props.friends;
+	            // this.setState({friends: friendString});
+	            // this.setState({friendState: friendsString});
+	            // this.props.updateFriends(friendString);
+	            // console.log(this.props.updateFriends);
+	
+	            // console.log(friendState);
+	            // console.log(this.props.friends);
+	
+	            // this.props.updateFriends();
+	            return friendsString;
+	          }).then(function (friendsString) {
+	            _this2.props.updateFriends(friendsString);
+	          });
 	        }
 	      }).then(function () {
 	        _this2.setState({ value: '' });
@@ -22198,7 +22225,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'row' },
 	        _react2.default.createElement(
 	          'form',
 	          { onSubmit: this.handleSubmit },
@@ -22227,7 +22254,7 @@
 	            this.state.favorites !== 'error' && this.state.favorites.map(function (favorite) {
 	              return _react2.default.createElement(
 	                'div',
-	                { className: 'text-center' },
+	                { className: 'text-center eachFav' },
 	                _react2.default.createElement(
 	                  'a',
 	                  { target: '_blank', href: favorite.posturl },
@@ -22289,10 +22316,6 @@
 	
 	var _AddFriend2 = _interopRequireDefault(_AddFriend);
 	
-	var _DisplayFriends = __webpack_require__(/*! ./DisplayFriends.jsx */ 208);
-	
-	var _DisplayFriends2 = _interopRequireDefault(_DisplayFriends);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22300,6 +22323,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	// import DisplayFriends from './DisplayFriends.jsx';
 	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
@@ -22320,11 +22345,8 @@
 	    value: function componentDidMount() {
 	      var _this2 = this;
 	
-	      _axios2.default.post('/displayFriends')
-	      // see how you can pass in a user generated username
-	      .then(function (response) {
+	      _axios2.default.post('/displayFriends').then(function (response) {
 	        var friends = response.data;
-	        // console.log(friends);
 	        var keys = Object.keys(response.data);
 	        var friendArray = [];
 	        var friendsString = [];
@@ -22334,12 +22356,17 @@
 	        for (var j = 0; j < friendArray.length; j++) {
 	          friendsString.push(friendArray[j].friend);
 	        }
-	
 	        _this2.setState({ friends: friendsString });
+	      });
+	    }
 	
-	        // this.setState({ friends });
-	        // // console.log(this.state.friends);
-	        // console.log(this.state.friends);
+	    // componentWillReceiveProps()
+	
+	  }, {
+	    key: 'updateFriends',
+	    value: function updateFriends(newFriends) {
+	      this.setState({
+	        friends: newFriends
 	      });
 	    }
 	  }, {
@@ -22347,7 +22374,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'col-xs-4' },
@@ -22364,7 +22391,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-xs-4', id: 'friends' },
+	          { className: 'col-xs-4' },
 	          _react2.default.createElement(
 	            'h3',
 	            null,
@@ -22372,11 +22399,11 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            null,
+	            { className: 'text-center friends' },
 	            this.state.friends.map(function (friend) {
 	              return _react2.default.createElement(
 	                'div',
-	                null,
+	                { className: 'eachFriend' },
 	                friend
 	              );
 	            })
@@ -22385,7 +22412,10 @@
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'addFriend' },
-	          _react2.default.createElement(_AddFriend2.default, null)
+	          _react2.default.createElement(_AddFriend2.default, {
+	            friends: this.state.friends,
+	            updateFriends: this.updateFriends.bind(this)
+	          })
 	        )
 	      );
 	    }
@@ -23959,26 +23989,6 @@
 	  };
 	};
 
-
-/***/ },
-/* 208 */
-/*!**************************************************!*\
-  !*** ./client/app/components/DisplayFriends.jsx ***!
-  \**************************************************/
-/***/ function(module, exports) {
-
-	// import React from 'react';
-	// import axios from 'axios';
-	
-	// const DisplayFriends = () => (
-	
-	//     // <a href='/DisplayFriends'>Display Friends</a>
-	
-	
-	// );
-	
-	// export default DisplayFriends;
-	"use strict";
 
 /***/ }
 /******/ ]);

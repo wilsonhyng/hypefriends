@@ -1,5 +1,5 @@
 body {
-  background-color: white;
+  background-color: #83C441;
 }
 
 h1 {
@@ -35,6 +35,16 @@ ul {
 }
 
 #hypemlogo {
-  width:10%; /* you can use % */
+  width:40%; /* you can use % */
   height: auto;
+}
+
+.eachFav {
+  border: 5px black solid;
+  padding: 2%;
+}
+
+.eachFriend {
+/*  border: 3px black solid;
+  padding-bottom: 5px;*/
 }

@@ -32,8 +32,42 @@ class AddFriend extends React.Component {
         const favorites = response.data;
         this.setState({ favorites });
         let displayFriend = this.state.value; 
-        console.log(displayFriend);
+        // console.log(displayFriend);
         this.setState({currentFriend: displayFriend});
+
+        
+        axios.post('/displayFriends')
+          .then((response) => {
+            const friends = response.data;
+            let keys = Object.keys(response.data);
+            let friendArray = [];
+            let friendsString = [];
+            for (var i = 0; i < keys.length; i++) {
+              friendArray.push(response.data[keys[i]]);
+            }
+            for (var j = 0; j < friendArray.length; j++) {
+              friendsString.push(friendArray[j].friend);
+            }
+
+            // let friendState = this.props.friends;
+            // this.setState({friends: friendString});
+            // this.setState({friendState: friendsString});
+            // this.props.updateFriends(friendString);
+            // console.log(this.props.updateFriends);
+
+            // console.log(friendState);
+            // console.log(this.props.friends);
+
+            // this.props.updateFriends();
+            return friendsString;
+
+          })
+          .then((friendsString) => {
+            this.props.updateFriends(friendsString);
+
+          });
+          
+
       }
     })
     .then (()=> {
@@ -48,10 +82,10 @@ class AddFriend extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className='row'>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Your HYPE friend:
+            Your HYPE friend: 
             <input name="friend" type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" />
@@ -63,7 +97,7 @@ class AddFriend extends React.Component {
           <div>
             {this.state.favorites !== 'error' &&
               this.state.favorites.map(favorite => 
-                <div className='text-center'>
+                <div className='text-center eachFav'>
 
                 <a target='_blank' href={favorite.posturl}>{favorite.artist} - {favorite.title}</a>
 

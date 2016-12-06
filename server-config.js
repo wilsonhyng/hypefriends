@@ -58,7 +58,6 @@ app.post('/addFriend', (req, res) => {
 });
 
 app.post('/displayFriends', (req, res) => {
-
   Friend.find({}, function(err, friends) {
     var friendMap = {};
 
