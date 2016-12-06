@@ -39,14 +39,31 @@ app.post('/addFriend', (req, res) => {
     if (!error && response.statusCode === 200) {
       res.send(JSON.parse(body));
 
-      var me = new Friend(username);
-      console.log(me);
-      me.save((err, friend) => {
-        if (err) {
-          console.log(err);
-        } 
-        console.log('Friend saved!');
+
+      // don't add friends into data base if they are already in there
+
+      // Friend.findAll
+
+      Friend.find(username, (err, found) => {
+        if (!found) {
+          var newFriend = new Friend(username);
+          console.log(me);
+          newFriend.save((err, friend) => {
+            if (err) {
+              console.log(err);
+            } 
+            console.log('Friend saved!', friend);
+          });
+        } else {
+          console.log('Friend already in database', username.friend);
+        }
       });
+
+
+
+
+
+
 
 
     } else {
