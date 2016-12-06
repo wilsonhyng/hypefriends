@@ -22,17 +22,14 @@ class AddFriend extends React.Component {
   }
 
   handleSubmit(event) {
-    // console.log(this.state.value);
     axios.post('/addFriend', {
       data: (this.state.value).toLowerCase()
     })
     .then((response) => {
-      // console.log('THE END REPONSE', response);
       if (response.data !== 'error') {
         const favorites = response.data;
         this.setState({ favorites });
         let displayFriend = this.state.value; 
-        // console.log(displayFriend);
         this.setState({currentFriend: displayFriend});
 
         
@@ -48,26 +45,11 @@ class AddFriend extends React.Component {
             for (var j = 0; j < friendArray.length; j++) {
               friendsString.push(friendArray[j].friend);
             }
-
-            // let friendState = this.props.friends;
-            // this.setState({friends: friendString});
-            // this.setState({friendState: friendsString});
-            // this.props.updateFriends(friendString);
-            // console.log(this.props.updateFriends);
-
-            // console.log(friendState);
-            // console.log(this.props.friends);
-
-            // this.props.updateFriends();
             return friendsString;
-
           })
           .then((friendsString) => {
             this.props.updateFriends(friendsString);
-
           });
-          
-
       }
     })
     .then (()=> {
@@ -104,12 +86,10 @@ class AddFriend extends React.Component {
                 <img src={favorite['thumb_url_large']}></img>
 
                 </div>
-                )
-            }
+                )}
           </div>
         </div>
       </div>
-
     );
   }
 }

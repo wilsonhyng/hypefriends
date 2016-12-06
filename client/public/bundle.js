@@ -22173,16 +22173,13 @@
 	    value: function handleSubmit(event) {
 	      var _this2 = this;
 	
-	      // console.log(this.state.value);
 	      _axios2.default.post('/addFriend', {
 	        data: this.state.value.toLowerCase()
 	      }).then(function (response) {
-	        // console.log('THE END REPONSE', response);
 	        if (response.data !== 'error') {
 	          var favorites = response.data;
 	          _this2.setState({ favorites: favorites });
 	          var displayFriend = _this2.state.value;
-	          // console.log(displayFriend);
 	          _this2.setState({ currentFriend: displayFriend });
 	
 	          _axios2.default.post('/displayFriends').then(function (response) {
@@ -22196,17 +22193,6 @@
 	            for (var j = 0; j < friendArray.length; j++) {
 	              friendsString.push(friendArray[j].friend);
 	            }
-	
-	            // let friendState = this.props.friends;
-	            // this.setState({friends: friendString});
-	            // this.setState({friendState: friendsString});
-	            // this.props.updateFriends(friendString);
-	            // console.log(this.props.updateFriends);
-	
-	            // console.log(friendState);
-	            // console.log(this.props.friends);
-	
-	            // this.props.updateFriends();
 	            return friendsString;
 	          }).then(function (friendsString) {
 	            _this2.props.updateFriends(friendsString);
@@ -22324,8 +22310,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// import DisplayFriends from './DisplayFriends.jsx';
-	
 	var App = function (_React$Component) {
 	  _inherits(App, _React$Component);
 	
@@ -22359,9 +22343,6 @@
 	        _this2.setState({ friends: friendsString });
 	      });
 	    }
-	
-	    // componentWillReceiveProps()
-	
 	  }, {
 	    key: 'updateFriends',
 	    value: function updateFriends(newFriends) {
@@ -22377,12 +22358,12 @@
 	        { className: 'row' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-xs-4' },
+	          { className: 'col-xs-4 vcenter' },
 	          _react2.default.createElement('img', { id: 'hypemlogo', src: '../hypem.png' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-xs-4' },
+	          { className: 'col-xs-4 vcenter' },
 	          _react2.default.createElement(
 	            'h1',
 	            null,
@@ -22391,7 +22372,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-xs-4' },
+	          { className: 'col-xs-4 vcenter' },
 	          _react2.default.createElement(
 	            'h3',
 	            null,
@@ -22413,7 +22394,6 @@
 	          'div',
 	          { id: 'addFriend' },
 	          _react2.default.createElement(_AddFriend2.default, {
-	            friends: this.state.friends,
 	            updateFriends: this.updateFriends.bind(this)
 	          })
 	        )
