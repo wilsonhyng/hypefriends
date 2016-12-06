@@ -37,6 +37,8 @@ app.post('/addFriend', (req, res) => {
 
   request.get(url, (error, response, body) => {
     if (!error && response.statusCode === 200) {
+      console.log('SEND THIS SHIT BACK');
+      // console.log(JSON.parse(body));
       res.send(JSON.parse(body));
 
       Friend.findOne(username, (err, found) => {

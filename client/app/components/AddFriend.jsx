@@ -36,6 +36,7 @@ class AddFriend extends React.Component {
     axios.post('/addFriend', {
       data: this.state.value
     });
+    this.setState({value: ''});
     event.preventDefault();
   }
 
