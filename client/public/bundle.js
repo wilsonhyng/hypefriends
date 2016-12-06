@@ -22254,6 +22254,10 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
+	var _axios = __webpack_require__(/*! axios */ 183);
+	
+	var _axios2 = _interopRequireDefault(_axios);
+	
 	var _AwesomeComponent = __webpack_require__(/*! ./AwesomeComponent.jsx */ 178);
 	
 	var _AwesomeComponent2 = _interopRequireDefault(_AwesomeComponent);
@@ -22286,11 +22290,40 @@
 	
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 	
-	    _this.state = {};
+	    _this.state = {
+	      friends: []
+	    };
 	    return _this;
 	  }
 	
 	  _createClass(App, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      _axios2.default.post('/displayFriends')
+	      // see how you can pass in a user generated username
+	      .then(function (response) {
+	        var friends = response.data;
+	        console.log(friends);
+	        var keys = Object.keys(response.data);
+	        var friendArray = [];
+	        var friendsString = [];
+	        for (var i = 0; i < keys.length; i++) {
+	          friendArray.push(response.data[keys[i]]);
+	        }
+	        for (var j = 0; j < friendArray.length; j++) {
+	          friendsString.push(friendArray[j].friend);
+	        }
+	
+	        _this2.setState({ friends: friendsString });
+	
+	        // this.setState({ friends });
+	        // // console.log(this.state.friends);
+	        console.log(_this2.state.friends);
+	      });
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -22309,7 +22342,17 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement(_DisplayFriends2.default, null)
+	          _react2.default.createElement(
+	            'ul',
+	            null,
+	            this.state.friends.map(function (friend) {
+	              return _react2.default.createElement(
+	                'li',
+	                null,
+	                friend
+	              );
+	            })
+	          )
 	        )
 	      );
 	    }
@@ -23889,29 +23932,20 @@
 /*!**************************************************!*\
   !*** ./client/app/components/DisplayFriends.jsx ***!
   \**************************************************/
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
+	// import React from 'react';
+	// import axios from 'axios';
 	
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
+	// const DisplayFriends = () => (
 	
-	var _react = __webpack_require__(/*! react */ 1);
+	//     // <a href='/DisplayFriends'>Display Friends</a>
 	
-	var _react2 = _interopRequireDefault(_react);
 	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	// );
 	
-	var DisplayFriends = function DisplayFriends() {
-	    return _react2.default.createElement(
-	        'a',
-	        { href: '/DisplayFriends' },
-	        'Display Friends'
-	    );
-	};
-	
-	exports.default = DisplayFriends;
+	// export default DisplayFriends;
+	"use strict";
 
 /***/ }
 /******/ ]);

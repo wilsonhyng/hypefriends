@@ -57,7 +57,7 @@ app.post('/addFriend', (req, res) => {
   // res.status(201).redirect('/');
 });
 
-app.get('/displayFriends', (req, res) => {
+app.post('/displayFriends', (req, res) => {
 
   Friend.find({}, function(err, friends) {
     var friendMap = {};
@@ -66,7 +66,11 @@ app.get('/displayFriends', (req, res) => {
       friendMap[friend._id] = friend;
     });
 
-    res.send(friendMap);  
+    if (friendMap !== {}) {
+      res.send(friendMap);  
+    } else {
+      res.send('none');
+    }
   });
 });
 

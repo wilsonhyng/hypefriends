@@ -1,9 +1,16 @@
-import React from 'react';
+// import React from 'react';
+// import axios from 'axios';
 
-const DisplayFriends = () => (
+// const DisplayFriends = () => (
 
-    <a href='/DisplayFriends'>Display Friends</a>
+//     // <a href='/DisplayFriends'>Display Friends</a>
 
-);
+    
 
-export default DisplayFriends;
+
+
+
+
+// );
+
+// export default DisplayFriends;
