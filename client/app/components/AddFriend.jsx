@@ -51,7 +51,7 @@ class AddFriend extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <label>
-            Username:
+            Your HYPE friend:
             <input name="friend" type="text" value={this.state.value} onChange={this.handleChange} />
           </label>
           <input type="submit" value="Submit" />
@@ -65,8 +65,7 @@ class AddFriend extends React.Component {
               this.state.favorites.map(favorite => 
                 <div className='text-center'>
 
-                <div>{favorite.artist} - {favorite.title}
-                </div>
+                <a target='_blank' href={favorite.posturl}>{favorite.artist} - {favorite.title}</a>
 
                 <img src={favorite['thumb_url_large']}></img>
 

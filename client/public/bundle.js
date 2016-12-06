@@ -22205,7 +22205,7 @@
 	          _react2.default.createElement(
 	            'label',
 	            null,
-	            'Username:',
+	            'Your HYPE friend:',
 	            _react2.default.createElement('input', { name: 'friend', type: 'text', value: this.state.value, onChange: this.handleChange })
 	          ),
 	          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
@@ -22229,8 +22229,8 @@
 	                'div',
 	                { className: 'text-center' },
 	                _react2.default.createElement(
-	                  'div',
-	                  null,
+	                  'a',
+	                  { target: '_blank', href: favorite.posturl },
 	                  favorite.artist,
 	                  ' - ',
 	                  favorite.title
