@@ -22208,20 +22208,20 @@
 	          'div',
 	          null,
 	          _react2.default.createElement(
-	            'h2',
+	            'h3',
 	            null,
 	            'Favorites from ',
 	            this.state.value
 	          ),
 	          _react2.default.createElement(
-	            'ul',
+	            'div',
 	            null,
 	            this.state.favorites !== 'error' && this.state.favorites.map(function (favorite) {
 	              return _react2.default.createElement(
 	                'div',
-	                null,
+	                { 'class': 'text-center' },
 	                _react2.default.createElement(
-	                  'li',
+	                  'div',
 	                  null,
 	                  favorite.artist,
 	                  ' - ',
@@ -22347,18 +22347,18 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { id: 'friends' },
 	          _react2.default.createElement(
-	            'h2',
+	            'h3',
 	            null,
 	            'Friends'
 	          ),
 	          _react2.default.createElement(
-	            'ul',
+	            'div',
 	            null,
 	            this.state.friends.map(function (friend) {
 	              return _react2.default.createElement(
-	                'li',
+	                'div',
 	                null,
 	                friend
 	              );
@@ -22367,7 +22367,7 @@
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          null,
+	          { id: 'addFriend' },
 	          _react2.default.createElement(_AddFriend2.default, null)
 	        )
 	      );

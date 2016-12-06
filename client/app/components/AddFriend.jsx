@@ -52,21 +52,21 @@ class AddFriend extends React.Component {
       
 
         <div>
-        <h2>Favorites from {this.state.value}</h2>
-          <ul>
+        <h3>Favorites from {this.state.value}</h3>
+          <div>
             {this.state.favorites !== 'error' &&
               this.state.favorites.map(favorite => 
-                <div>
+                <div class='text-center'>
 
-                <li>{favorite.artist} - {favorite.title}
-                </li>
+                <div>{favorite.artist} - {favorite.title}
+                </div>
 
                 <img src={favorite['thumb_url_large']}></img>
 
                 </div>
                 )
             }
-          </ul>
+          </div>
         </div>
       </div>
 

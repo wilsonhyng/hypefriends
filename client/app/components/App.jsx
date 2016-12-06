@@ -47,17 +47,17 @@ class App extends React.Component {
 
       <h1>HypeFriends</h1>
 
-      <div>
-        <h2>Friends</h2>
-        <ul>
+      <div id='friends'>
+        <h3>Friends</h3>
+        <div>
           {this.state.friends.map(friend => 
-                <li>{friend}</li>)
+                <div>{friend}</div>)
             }
-        </ul>
+        </div>
       </div>
 
 
-      <div>
+      <div id='addFriend'>
         <AddFriend />
       </div>
 
