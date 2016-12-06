@@ -4,10 +4,7 @@ var app = express();
 
 
 var bodyParser = require('body-parser');
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
-})); 
+
 
 // Mongodb stuff
 var mongooseConnection = require('./App/config.js');
@@ -19,6 +16,11 @@ var path = require('path');
 
 app.use(express.static(path.join(__dirname, 'client')));
 
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+})); 
+
 
 
 // handle a post request from client with username, use username to request api, on success, save username to database and render results to client 
@@ -28,7 +30,16 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 app.post('/addFriend', (req, res) => {
   console.log(req.body.friend);
-  res.status(201).redirect('/');
+  var username = req.body;
+
+  var url = 'https://api.hypem.com/v2/users/' + username.friend + '/favorites?page=1&count=10&key=swagger';  
+
+  request.get(url, (error, response, body) => {
+    res.send(JSON.parse(body));
+  });
+
+
+  // res.status(201).redirect('/');
 });
 
 app.get('/addFriend', (req, res) => {
@@ -44,7 +55,7 @@ app.get('/addFriend', (req, res) => {
     } 
     console.log('Friend saved!');
   });
-  res.status(201).redirect('/');
+
 });
 
 
