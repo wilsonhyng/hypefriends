@@ -52,10 +52,11 @@ class AddFriend extends React.Component {
       
 
         <div>
+        <h2>Favorites from {this.state.value}</h2>
           <ul>
             {this.state.favorites !== 'error' &&
               this.state.favorites.map(favorite => 
-                <li>{favorite.artist} + {favorite.title}</li> 
+                <li>{favorite.artist} - {favorite.title}</li> 
                 )
             }
           </ul>

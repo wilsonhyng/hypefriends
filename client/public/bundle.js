@@ -22208,6 +22208,12 @@
 	          'div',
 	          null,
 	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Favorites from ',
+	            this.state.value
+	          ),
+	          _react2.default.createElement(
 	            'ul',
 	            null,
 	            this.state.favorites !== 'error' && this.state.favorites.map(function (favorite) {
@@ -22215,7 +22221,7 @@
 	                'li',
 	                null,
 	                favorite.artist,
-	                ' + ',
+	                ' - ',
 	                favorite.title
 	              );
 	            })
@@ -22337,11 +22343,11 @@
 	        _react2.default.createElement(
 	          'div',
 	          null,
-	          _react2.default.createElement(_AddFriend2.default, null)
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
+	          _react2.default.createElement(
+	            'h2',
+	            null,
+	            'Friends'
+	          ),
 	          _react2.default.createElement(
 	            'ul',
 	            null,
@@ -22353,6 +22359,11 @@
 	              );
 	            })
 	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_AddFriend2.default, null)
 	        )
 	      );
 	    }

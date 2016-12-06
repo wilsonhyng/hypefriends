@@ -45,13 +45,11 @@ class App extends React.Component {
   render () {
     return (
       <div>
+
       <h1>HypeFriends</h1>
 
       <div>
-        <AddFriend />
-      </div>
-
-      <div>
+        <h2>Friends</h2>
         <ul>
           {
               this.state.friends.map(friend => 
@@ -59,12 +57,12 @@ class App extends React.Component {
                 )
             }
         </ul>
-        
-     
-
-
       </div>
 
+
+      <div>
+        <AddFriend />
+      </div>
 
       </div>
     );
