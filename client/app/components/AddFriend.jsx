@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import axios from 'axios';
 
 // const AddFriend = () => (
@@ -20,10 +21,14 @@ class AddFriend extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {
+      value: '',
+      favorites: []
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.favorites = this.favorites.bind(this);
   }
 
   handleChange(event) {
@@ -35,6 +40,14 @@ class AddFriend extends React.Component {
     console.log(this.state.value);
     axios.post('/addFriend', {
       data: this.state.value
+    })
+    .then((response) => {
+      console.log(response.data[0]);
+      const favorites = response.data;
+      this.setState({ favorites });
+    })
+    .catch((error) => {
+      console.log(error);
     });
     this.setState({value: ''});
     event.preventDefault();
@@ -42,13 +55,25 @@ class AddFriend extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input name="friend" type="text" value={this.state.value} onChange={this.handleChange} />
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Username:
+            <input name="friend" type="text" value={this.state.value} onChange={this.handleChange} />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+      
+
+        <div>
+          <ul>
+            {this.state.favorites.map(favorite => 
+              <li>{favorite.artist} + {favorite.title}</li> 
+              )}
+          </ul>
+        </div>
+      </div>
+
     );
   }
 
