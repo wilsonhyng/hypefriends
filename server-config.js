@@ -24,20 +24,15 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 
-// handle a post request from client with username, use username to request api, on success, save username to database and render results to client 
-
-
-
-
 app.post('/addFriend', (req, res) => {
-  // console.log('POST FROM CLIENT', req.body.data);
-  var username = {friend: req.body.data};
+  console.log('POST FROM CLIENT', req.body.data);
+  var username = ({friend: req.body.data});
   console.log(username);
   var url = 'https://api.hypem.com/v2/users/' + req.body.data + '/favorites?page=1&count=10&key=swagger';  
 
   request.get(url, (error, response, body) => {
     if (!error && response.statusCode === 200) {
-      console.log('SEND THIS SHIT BACK');
+      // console.log('SEND THIS SHIT BACK');
       // console.log(JSON.parse(body));
       res.send(JSON.parse(body));
 
@@ -56,41 +51,23 @@ app.post('/addFriend', (req, res) => {
       });
     } else {
       console.log('No such username');
-      res.send();
+      res.send('error');
     }
   });
-
-
   // res.status(201).redirect('/');
 });
 
-// app.get('/addFriend', (req, res) => {
-//   console.log('hello');
+app.get('/displayFriends', (req, res) => {
 
+  Friend.find({}, function(err, friends) {
+    var friendMap = {};
 
+    friends.forEach(function(friend) {
+      friendMap[friend._id] = friend;
+    });
 
-//   var me = new Friend({friend: 'wily8'});
-//   console.log(me);
-//   me.save((err, friend) => {
-//     if (err) {
-//       console.log(err);
-//     } 
-//     console.log('Friend saved!');
-//   });
-
-// });
-
-
-// var me = new Friend({friend: 'wily7'});
-// console.log(me);
-// me.save((err, friend) => {
-//   if (err) {
-//     console.log(err);
-//   } 
-//   console.log('Friend saved!');
-// });
-
-
-
+    res.send(friendMap);  
+  });
+});
 
 module.exports = app;

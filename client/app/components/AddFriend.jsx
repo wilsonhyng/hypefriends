@@ -2,21 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-// const AddFriend = () => (
-
-//     // <a href='/addFriend'>Add Friend</a>
-// // html button
-
-
-//     <form action='/addFriend' method='post'>
-//       <input name="friend" defaultValue="wily6"></input>
-//       <button>Add a Friend</button>
-//     </form>
-
-
-
-// );
-
 class AddFriend extends React.Component {
 
   constructor(props) {
@@ -28,7 +13,6 @@ class AddFriend extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.favorites = this.favorites.bind(this);
   }
 
   handleChange(event) {
@@ -36,15 +20,13 @@ class AddFriend extends React.Component {
   }
 
   handleSubmit(event) {
-    // alert('A name was submitted: ' + this.state.value);
-    console.log(this.state.value);
+    // console.log(this.state.value);
     axios.post('/addFriend', {
-      data: this.state.value
+      data: (this.state.value).toLowerCase()
     })
     .then((response) => {
       console.log('THE END REPONSE', response);
-      if (response.data !== '') {
-        // console.log(response.data[0]);
+      if (response.data !== 'error') {
         const favorites = response.data;
         this.setState({ favorites });
       }
@@ -56,13 +38,6 @@ class AddFriend extends React.Component {
     this.setState({value: ''});
     event.preventDefault();
   }
-
-
-      //   {unreadMessages.length > 0 &&
-      //   <h2>
-      //     You have {unreadMessages.length} unread messages.
-      //   </h2>
-      // }
 
   render() {
     return (
@@ -78,32 +53,17 @@ class AddFriend extends React.Component {
 
         <div>
           <ul>
-
-            {this.state.favorites !== '' &&
-
+            {this.state.favorites !== 'error' &&
               this.state.favorites.map(favorite => 
                 <li>{favorite.artist} + {favorite.title}</li> 
                 )
-
-
-
             }
-
-
-
-
           </ul>
         </div>
       </div>
 
     );
   }
-
-
-
-
-
-
 }
 
 export default AddFriend;

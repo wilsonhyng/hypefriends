@@ -22143,20 +22143,6 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	// const AddFriend = () => (
-	
-	//     // <a href='/addFriend'>Add Friend</a>
-	// // html button
-	
-	
-	//     <form action='/addFriend' method='post'>
-	//       <input name="friend" defaultValue="wily6"></input>
-	//       <button>Add a Friend</button>
-	//     </form>
-	
-	
-	// );
-	
 	var AddFriend = function (_React$Component) {
 	  _inherits(AddFriend, _React$Component);
 	
@@ -22172,7 +22158,6 @@
 	
 	    _this.handleChange = _this.handleChange.bind(_this);
 	    _this.handleSubmit = _this.handleSubmit.bind(_this);
-	    // this.favorites = this.favorites.bind(this);
 	    return _this;
 	  }
 	
@@ -22186,14 +22171,12 @@
 	    value: function handleSubmit(event) {
 	      var _this2 = this;
 	
-	      // alert('A name was submitted: ' + this.state.value);
-	      console.log(this.state.value);
+	      // console.log(this.state.value);
 	      _axios2.default.post('/addFriend', {
-	        data: this.state.value
+	        data: this.state.value.toLowerCase()
 	      }).then(function (response) {
 	        console.log('THE END REPONSE', response);
-	        if (response.data !== '') {
-	          // console.log(response.data[0]);
+	        if (response.data !== 'error') {
 	          var favorites = response.data;
 	          _this2.setState({ favorites: favorites });
 	        }
@@ -22204,13 +22187,6 @@
 	      this.setState({ value: '' });
 	      event.preventDefault();
 	    }
-	
-	    //   {unreadMessages.length > 0 &&
-	    //   <h2>
-	    //     You have {unreadMessages.length} unread messages.
-	    //   </h2>
-	    // }
-	
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -22234,7 +22210,7 @@
 	          _react2.default.createElement(
 	            'ul',
 	            null,
-	            this.state.favorites !== '' && this.state.favorites.map(function (favorite) {
+	            this.state.favorites !== 'error' && this.state.favorites.map(function (favorite) {
 	              return _react2.default.createElement(
 	                'li',
 	                null,
@@ -22290,6 +22266,10 @@
 	
 	var _AddFriend2 = _interopRequireDefault(_AddFriend);
 	
+	var _DisplayFriends = __webpack_require__(/*! ./DisplayFriends.jsx */ 208);
+	
+	var _DisplayFriends2 = _interopRequireDefault(_DisplayFriends);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22310,29 +22290,6 @@
 	    return _this;
 	  }
 	
-	  // componentDidMount() {
-	  //   this.getFriend('react tutorials');
-	  // }
-	
-	  // getFriend(query) {
-	
-	  // }
-	
-	
-	  //   getYouTubeVideos(query) {
-	  //   var options = {
-	  //     key: this.props.API_KEY,
-	  //     query: query
-	  //   };
-	
-	  //   this.props.searchYouTube(options, (videos) =>
-	  //     this.setState({
-	  //       videos: videos,
-	  //       currentVideo: videos[0]
-	  //     })
-	  //   );
-	  // }
-	
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
@@ -22348,6 +22305,11 @@
 	          'div',
 	          null,
 	          _react2.default.createElement(_AddFriend2.default, null)
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          _react2.default.createElement(_DisplayFriends2.default, null)
 	        )
 	      );
 	    }
@@ -23921,6 +23883,35 @@
 	  };
 	};
 
+
+/***/ },
+/* 208 */
+/*!**************************************************!*\
+  !*** ./client/app/components/DisplayFriends.jsx ***!
+  \**************************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(/*! react */ 1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var DisplayFriends = function DisplayFriends() {
+	    return _react2.default.createElement(
+	        'a',
+	        { href: '/DisplayFriends' },
+	        'Display Friends'
+	    );
+	};
+	
+	exports.default = DisplayFriends;
 
 /***/ }
 /******/ ]);
