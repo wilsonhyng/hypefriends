@@ -12,7 +12,7 @@ var mongooseConnection = require('./App/config.js');
 var Friend = require('./App/Models/Friend.js');
 
 
-// Path to help express server public files
+// Path to help express serve public files
 var path = require('path');
 
 app.use(express.static(path.join(__dirname, 'client')));
@@ -30,19 +30,14 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 app.post('/addFriend', (req, res) => {
-  console.log(req.body.friend);
-  var username = req.body;
-
-  var url = 'https://api.hypem.com/v2/users/' + username.friend + '/favorites?page=1&count=10&key=swagger';  
+  // console.log('POST FROM CLIENT', req.body.data);
+  var username = {friend: req.body.data};
+  console.log(username);
+  var url = 'https://api.hypem.com/v2/users/' + req.body.data + '/favorites?page=1&count=10&key=swagger';  
 
   request.get(url, (error, response, body) => {
     if (!error && response.statusCode === 200) {
       res.send(JSON.parse(body));
-
-
-      // don't add friends into data base if they are already in there
-
-      
 
       Friend.findOne(username, (err, found) => {
         if (!found) {
@@ -57,10 +52,8 @@ app.post('/addFriend', (req, res) => {
           console.log('Friend already in database', username.friend);
         }
       });
-
-
     } else {
-      console.log('No username');
+      console.log('No such username');
       res.redirect('/');
       return;
     }
