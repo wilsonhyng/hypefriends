@@ -42,12 +42,11 @@ app.post('/addFriend', (req, res) => {
 
       // don't add friends into data base if they are already in there
 
-      // Friend.findAll
+      
 
-      Friend.find(username, (err, found) => {
+      Friend.findOne(username, (err, found) => {
         if (!found) {
           var newFriend = new Friend(username);
-          console.log(me);
           newFriend.save((err, friend) => {
             if (err) {
               console.log(err);
@@ -58,12 +57,6 @@ app.post('/addFriend', (req, res) => {
           console.log('Friend already in database', username.friend);
         }
       });
-
-
-
-
-
-
 
 
     } else {
