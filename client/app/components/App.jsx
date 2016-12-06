@@ -21,7 +21,7 @@ class App extends React.Component {
     // see how you can pass in a user generated username
       .then((response) => {
         const friends = response.data;
-        console.log(friends);
+        // console.log(friends);
         let keys = Object.keys(response.data);
         let friendArray = [];
         let friendsString = [];
@@ -37,7 +37,7 @@ class App extends React.Component {
 
         // this.setState({ friends });
         // // console.log(this.state.friends);
-        console.log(this.state.friends);
+        // console.log(this.state.friends);
       });
   }
 

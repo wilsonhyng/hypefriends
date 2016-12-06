@@ -22153,7 +22153,8 @@
 	
 	    _this.state = {
 	      value: '',
-	      favorites: []
+	      favorites: [],
+	      currentFriend: ''
 	    };
 	
 	    _this.handleChange = _this.handleChange.bind(_this);
@@ -22175,16 +22176,20 @@
 	      _axios2.default.post('/addFriend', {
 	        data: this.state.value.toLowerCase()
 	      }).then(function (response) {
-	        console.log('THE END REPONSE', response);
+	        // console.log('THE END REPONSE', response);
 	        if (response.data !== 'error') {
 	          var favorites = response.data;
 	          _this2.setState({ favorites: favorites });
+	          var displayFriend = _this2.state.value;
+	          console.log(displayFriend);
+	          _this2.setState({ currentFriend: displayFriend });
 	        }
+	      }).then(function () {
+	        _this2.setState({ value: '' });
 	      }).catch(function (error) {
 	        console.log(error);
 	        _this2.setState({ value: '' });
 	      });
-	      this.setState({ value: '' });
 	      event.preventDefault();
 	    }
 	  }, {
@@ -22211,7 +22216,9 @@
 	            'h3',
 	            null,
 	            'Favorites from ',
-	            this.state.value
+	            this.state.value,
+	            ' ',
+	            this.state.currentFriend
 	          ),
 	          _react2.default.createElement(
 	            'div',
@@ -22316,7 +22323,7 @@
 	      // see how you can pass in a user generated username
 	      .then(function (response) {
 	        var friends = response.data;
-	        console.log(friends);
+	        // console.log(friends);
 	        var keys = Object.keys(response.data);
 	        var friendArray = [];
 	        var friendsString = [];
@@ -22331,7 +22338,7 @@
 	
 	        // this.setState({ friends });
 	        // // console.log(this.state.friends);
-	        console.log(_this2.state.friends);
+	        // console.log(this.state.friends);
 	      });
 	    }
 	  }, {

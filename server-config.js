@@ -25,9 +25,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 app.post('/addFriend', (req, res) => {
-  console.log('POST FROM CLIENT', req.body.data);
+  // console.log('POST FROM CLIENT', req.body.data);
   var username = ({friend: req.body.data});
-  console.log(username);
+  // console.log(username);
   var url = 'https://api.hypem.com/v2/users/' + req.body.data + '/favorites?page=1&count=10&key=swagger';  
 
   request.get(url, (error, response, body) => {

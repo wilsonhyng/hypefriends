@@ -8,7 +8,8 @@ class AddFriend extends React.Component {
     super(props);
     this.state = {
       value: '',
-      favorites: []
+      favorites: [],
+      currentFriend: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,17 +26,22 @@ class AddFriend extends React.Component {
       data: (this.state.value).toLowerCase()
     })
     .then((response) => {
-      console.log('THE END REPONSE', response);
+      // console.log('THE END REPONSE', response);
       if (response.data !== 'error') {
         const favorites = response.data;
         this.setState({ favorites });
+        let displayFriend = this.state.value; 
+        console.log(displayFriend);
+        this.setState({currentFriend: displayFriend});
       }
+    })
+    .then (()=> {
+      this.setState({value: ''});
     })
     .catch((error) => {
       console.log(error);
       this.setState({value: ''});
     });
-    this.setState({value: ''});
     event.preventDefault();
   }
 
@@ -52,7 +58,7 @@ class AddFriend extends React.Component {
       
 
         <div>
-        <h3>Favorites from {this.state.value}</h3>
+        <h3>Favorites from {this.state.value} {this.state.currentFriend}</h3>
           <div>
             {this.state.favorites !== 'error' &&
               this.state.favorites.map(favorite => 
