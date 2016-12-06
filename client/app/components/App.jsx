@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-
 import AwesomeComponent from './AwesomeComponent.jsx';
 import GetAPI from './GetAPI.jsx';
 
@@ -51,10 +50,8 @@ class App extends React.Component {
       <div>
         <h2>Friends</h2>
         <ul>
-          {
-              this.state.friends.map(friend => 
-                <li>{friend}</li> 
-                )
+          {this.state.friends.map(friend => 
+                <li>{friend}</li>)
             }
         </ul>
       </div>

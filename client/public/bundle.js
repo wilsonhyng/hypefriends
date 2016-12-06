@@ -22218,11 +22218,16 @@
 	            null,
 	            this.state.favorites !== 'error' && this.state.favorites.map(function (favorite) {
 	              return _react2.default.createElement(
-	                'li',
+	                'div',
 	                null,
-	                favorite.artist,
-	                ' - ',
-	                favorite.title
+	                _react2.default.createElement(
+	                  'li',
+	                  null,
+	                  favorite.artist,
+	                  ' - ',
+	                  favorite.title
+	                ),
+	                _react2.default.createElement('img', { src: favorite['thumb_url_large'] })
 	              );
 	            })
 	          )
