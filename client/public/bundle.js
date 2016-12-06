@@ -22211,7 +22211,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        null,
 	        _react2.default.createElement(
 	          'form',
 	          { onSubmit: this.handleSubmit },
@@ -22224,34 +22224,30 @@
 	          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
 	        ),
 	        _react2.default.createElement(
-	          'div',
+	          'h3',
 	          null,
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Favorites from ',
-	            this.state.value,
-	            ' ',
-	            this.state.currentFriend
-	          ),
-	          _react2.default.createElement(
-	            'div',
-	            null,
-	            this.state.favorites !== 'error' && this.state.favorites.map(function (favorite) {
-	              return _react2.default.createElement(
-	                'div',
-	                { className: 'text-center eachFav' },
-	                _react2.default.createElement(
-	                  'a',
-	                  { target: '_blank', href: favorite.posturl },
-	                  favorite.artist,
-	                  ' - ',
-	                  favorite.title
-	                ),
-	                _react2.default.createElement('img', { src: favorite['thumb_url_large'] })
-	              );
-	            })
-	          )
+	          'Favorites from ',
+	          this.state.value,
+	          ' ',
+	          this.state.currentFriend
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'renderedFavs' },
+	          this.state.favorites !== 'error' && this.state.favorites.map(function (favorite) {
+	            return _react2.default.createElement(
+	              'div',
+	              { className: 'text-center eachFav' },
+	              _react2.default.createElement(
+	                'a',
+	                { target: '_blank', href: favorite.posturl },
+	                favorite.artist,
+	                ' - ',
+	                favorite.title
+	              ),
+	              _react2.default.createElement('img', { src: favorite['thumb_url_large'] })
+	            );
+	          })
 	        )
 	      );
 	    }
@@ -22355,39 +22351,43 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'row' },
+	        { className: 'container' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'col-xs-4 vcenter' },
-	          _react2.default.createElement('img', { id: 'hypemlogo', src: '../hypem.png' })
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-4 vcenter' },
+	          { className: 'row' },
 	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            'HypeFriends'
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'col-xs-4 vcenter' },
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Friends'
+	            'div',
+	            { className: 'col-xs-4 vcenter' },
+	            _react2.default.createElement('img', { id: 'hypemlogo', src: '../hypem.png' })
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'text-center friends' },
-	            this.state.friends.map(function (friend) {
-	              return _react2.default.createElement(
-	                'div',
-	                { className: 'eachFriend' },
-	                friend
-	              );
-	            })
+	            { className: 'col-xs-4 vcenter' },
+	            _react2.default.createElement(
+	              'h1',
+	              null,
+	              'HypeFriends'
+	            )
+	          ),
+	          _react2.default.createElement(
+	            'div',
+	            { className: 'col-xs-4 vcenter' },
+	            _react2.default.createElement(
+	              'h3',
+	              null,
+	              'Friends'
+	            ),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'text-center friends' },
+	              this.state.friends.map(function (friend) {
+	                return _react2.default.createElement(
+	                  'div',
+	                  { className: 'eachFriend' },
+	                  friend
+	                );
+	              })
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(

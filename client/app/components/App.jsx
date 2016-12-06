@@ -40,25 +40,32 @@ class App extends React.Component {
 
   render () {
     return (
-      <div className='row'>
-      
-        <div className='col-xs-4 vcenter'>
-          <img id='hypemlogo' src='../hypem.png'></img>
-        </div>
 
-        <div className='col-xs-4 vcenter'>
-          <h1>HypeFriends</h1>
-        </div>
+      <div className='container'>
 
-
-        <div className='col-xs-4 vcenter'>
-          <h3>Friends</h3>
-          <div className='text-center friends'>
-            {this.state.friends.map(friend => 
-                  <div className='eachFriend'>{friend}</div>)
-              }
+        <div className='row'>
+        
+          <div className='col-xs-4 vcenter'>
+            <img id='hypemlogo' src='../hypem.png'></img>
           </div>
+
+          <div className='col-xs-4 vcenter'>
+            <h1>HypeFriends</h1>
+          </div>
+
+
+          <div className='col-xs-4 vcenter'>
+            <h3>Friends</h3>
+            <div className='text-center friends'>
+              {this.state.friends.map(friend => 
+                    <div className='eachFriend'>{friend}</div>
+              )}
+            </div>
+          </div>
+
         </div>
+
+
 
 
         <div id='addFriend'>
@@ -66,6 +73,9 @@ class App extends React.Component {
           updateFriends={this.updateFriends.bind(this)}
           />
         </div>
+
+
+
 
       </div>
     );

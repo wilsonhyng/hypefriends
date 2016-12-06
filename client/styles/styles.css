@@ -49,7 +49,11 @@ ul {
   padding-bottom: 5px;*/
 }
 
-
+.renderedFavs {
+  overflow-y: scroll;
+  background-color: yellow;
+  height: 100%;
+}
 
 .vcenter {
     display: inline-block;

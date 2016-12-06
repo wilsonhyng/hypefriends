@@ -64,7 +64,8 @@ class AddFriend extends React.Component {
 
   render() {
     return (
-      <div className='row'>
+      <div>
+
         <form onSubmit={this.handleSubmit}>
           <label>
             Your HYPE friend: 
@@ -73,10 +74,9 @@ class AddFriend extends React.Component {
           <input type="submit" value="Submit" />
         </form>
       
-
-        <div>
         <h3>Favorites from {this.state.value} {this.state.currentFriend}</h3>
-          <div>
+
+          <div className='renderedFavs'>
             {this.state.favorites !== 'error' &&
               this.state.favorites.map(favorite => 
                 <div className='text-center eachFav'>
@@ -88,7 +88,8 @@ class AddFriend extends React.Component {
                 </div>
                 )}
           </div>
-        </div>
+
+
       </div>
     );
   }
