@@ -22191,15 +22191,26 @@
 	      _axios2.default.post('/addFriend', {
 	        data: this.state.value
 	      }).then(function (response) {
-	        console.log(response.data[0]);
-	        var favorites = response.data;
-	        _this2.setState({ favorites: favorites });
+	        console.log('THE END REPONSE', response);
+	        if (response.data !== '') {
+	          // console.log(response.data[0]);
+	          var favorites = response.data;
+	          _this2.setState({ favorites: favorites });
+	        }
 	      }).catch(function (error) {
 	        console.log(error);
+	        _this2.setState({ value: '' });
 	      });
 	      this.setState({ value: '' });
 	      event.preventDefault();
 	    }
+	
+	    //   {unreadMessages.length > 0 &&
+	    //   <h2>
+	    //     You have {unreadMessages.length} unread messages.
+	    //   </h2>
+	    // }
+	
 	  }, {
 	    key: 'render',
 	    value: function render() {
@@ -22223,7 +22234,7 @@
 	          _react2.default.createElement(
 	            'ul',
 	            null,
-	            this.state.favorites.map(function (favorite) {
+	            this.state.favorites !== '' && this.state.favorites.map(function (favorite) {
 	              return _react2.default.createElement(
 	                'li',
 	                null,
@@ -22329,19 +22340,9 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'p',
+	          'h1',
 	          null,
-	          ' Hello React!! COOOOL'
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_AwesomeComponent2.default, null)
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          _react2.default.createElement(_GetAPI2.default, null)
+	          'HypeFriends'
 	        ),
 	        _react2.default.createElement(
 	          'div',

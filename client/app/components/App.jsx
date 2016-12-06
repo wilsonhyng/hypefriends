@@ -39,16 +39,8 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <p> Hello React!! COOOOL</p>
-      
-      <div>
-        <AwesomeComponent />
-      </div>
+      <h1>HypeFriends</h1>
 
-      <div>
-        <GetAPI / >
-      </div>
-      
       <div>
         <AddFriend />
       </div>

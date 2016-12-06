@@ -56,8 +56,7 @@ app.post('/addFriend', (req, res) => {
       });
     } else {
       console.log('No such username');
-      res.redirect('/');
-      return;
+      res.send();
     }
   });
 
@@ -65,21 +64,21 @@ app.post('/addFriend', (req, res) => {
   // res.status(201).redirect('/');
 });
 
-app.get('/addFriend', (req, res) => {
-  console.log('hello');
+// app.get('/addFriend', (req, res) => {
+//   console.log('hello');
 
 
 
-  var me = new Friend({friend: 'wily8'});
-  console.log(me);
-  me.save((err, friend) => {
-    if (err) {
-      console.log(err);
-    } 
-    console.log('Friend saved!');
-  });
+//   var me = new Friend({friend: 'wily8'});
+//   console.log(me);
+//   me.save((err, friend) => {
+//     if (err) {
+//       console.log(err);
+//     } 
+//     console.log('Friend saved!');
+//   });
 
-});
+// });
 
 
 // var me = new Friend({friend: 'wily7'});

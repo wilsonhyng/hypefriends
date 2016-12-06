@@ -42,16 +42,27 @@ class AddFriend extends React.Component {
       data: this.state.value
     })
     .then((response) => {
-      console.log(response.data[0]);
-      const favorites = response.data;
-      this.setState({ favorites });
+      console.log('THE END REPONSE', response);
+      if (response.data !== '') {
+        // console.log(response.data[0]);
+        const favorites = response.data;
+        this.setState({ favorites });
+      }
     })
     .catch((error) => {
       console.log(error);
+      this.setState({value: ''});
     });
     this.setState({value: ''});
     event.preventDefault();
   }
+
+
+      //   {unreadMessages.length > 0 &&
+      //   <h2>
+      //     You have {unreadMessages.length} unread messages.
+      //   </h2>
+      // }
 
   render() {
     return (
@@ -67,9 +78,20 @@ class AddFriend extends React.Component {
 
         <div>
           <ul>
-            {this.state.favorites.map(favorite => 
-              <li>{favorite.artist} + {favorite.title}</li> 
-              )}
+
+            {this.state.favorites !== '' &&
+
+              this.state.favorites.map(favorite => 
+                <li>{favorite.artist} + {favorite.title}</li> 
+                )
+
+
+
+            }
+
+
+
+
           </ul>
         </div>
       </div>
