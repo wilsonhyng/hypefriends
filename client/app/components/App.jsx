@@ -44,10 +44,17 @@ class App extends React.Component {
   render () {
     return (
       <div>
+      
+      <div className='col-xs-4'>
+        <img id='hypemlogo' src='../hypem.png'></img>
+      </div>
 
-      <h1>HypeFriends</h1>
+      <div className='col-xs-4'>
+        <h1>HypeFriends</h1>
+      </div>
 
-      <div id='friends'>
+
+      <div className='col-xs-4' id='friends'>
         <h3>Friends</h3>
         <div>
           {this.state.friends.map(friend => 

@@ -33,3 +33,8 @@ img {
 ul {
   list-style-type: none;
 }
+
+#hypemlogo {
+  width:10%; /* you can use % */
+  height: auto;
+}

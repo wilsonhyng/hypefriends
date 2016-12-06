@@ -18,6 +18,7 @@ class AddFriend extends React.Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
+    this.setState({currentFriend: ''});
   }
 
   handleSubmit(event) {
@@ -62,7 +63,7 @@ class AddFriend extends React.Component {
           <div>
             {this.state.favorites !== 'error' &&
               this.state.favorites.map(favorite => 
-                <div class='text-center'>
+                <div className='text-center'>
 
                 <div>{favorite.artist} - {favorite.title}
                 </div>

@@ -22166,6 +22166,7 @@
 	    key: 'handleChange',
 	    value: function handleChange(event) {
 	      this.setState({ value: event.target.value });
+	      this.setState({ currentFriend: '' });
 	    }
 	  }, {
 	    key: 'handleSubmit',
@@ -22226,7 +22227,7 @@
 	            this.state.favorites !== 'error' && this.state.favorites.map(function (favorite) {
 	              return _react2.default.createElement(
 	                'div',
-	                { 'class': 'text-center' },
+	                { className: 'text-center' },
 	                _react2.default.createElement(
 	                  'div',
 	                  null,
@@ -22348,13 +22349,22 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'h1',
-	          null,
-	          'HypeFriends'
+	          'div',
+	          { className: 'col-xs-4' },
+	          _react2.default.createElement('img', { id: 'hypemlogo', src: '../hypem.png' })
 	        ),
 	        _react2.default.createElement(
 	          'div',
-	          { id: 'friends' },
+	          { className: 'col-xs-4' },
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            'HypeFriends'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'col-xs-4', id: 'friends' },
 	          _react2.default.createElement(
 	            'h3',
 	            null,
