@@ -20,6 +20,10 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 
+app.get('/', function(req, res) {
+  res.render('./client/index.jsx');
+});
+
 
 app.post('/addFriend', (req, res) => {
   var username = ({friend: req.body.data});
