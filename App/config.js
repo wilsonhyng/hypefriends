@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/HypeFriends');
+
+if (env === 'development') {
+  mongoose.connect('mongodb://localhost/HypeFriends');
+} else {
+  mongoose.connect('mongodb://friends:wilson@ds127878.mlab.com:27878/hypefriends');
+}
+
 
 var mongooseConnection = mongoose;
 

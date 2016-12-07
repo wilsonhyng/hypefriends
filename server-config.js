@@ -1,12 +1,14 @@
 var express = require('express');
 var request = require('request');
 var Promise = require('bluebird');
+const env = require('get-env')();
 var app = express();
 var bodyParser = require('body-parser');
 
 // Mongodb stuff
 var mongooseConnection = require('./App/config.js');
 var Friend = require('./App/Models/Friend.js');
+
 
 
 // Path to help express serve public files
