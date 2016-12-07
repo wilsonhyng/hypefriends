@@ -1,13 +1,17 @@
 body {
   background-color: #83C441;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
   text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-style: ;
 }
 
 h1 span {
   color: white;
+  font-family: 'Shadows Into Light', cursive;
 }
 
 h3 {
@@ -15,9 +19,6 @@ h3 {
   /*color: white;*/
 }
 
-#addFriend {
-  text-align: center;
-}
 
 li {
   text-align: center;
@@ -33,7 +34,29 @@ ul {
   list-style-type: none;
 }
 
+a {
+  color: white;
+}
+
+a:hover, a:active {
+    color: #EA2427;
+}
+
+#addFriend {
+  text-align: center;
+}
+
 #hypemlogo {
+  width:40%;
+  height: auto;
+}
+
+.renderedFavs {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.renderedFavs img {
   width:40%;
   height: auto;
 }
@@ -42,30 +65,30 @@ ul {
   border: 3px black solid;
   border-radius: 25px;
   padding: 2%;
-  font-size: 40px;
-}
-
-.renderedFavs img {
-  width:40%;
-  height: auto;
+  font-size: 30px;
 }
 
 .eachFriend {
-  border: 3px white solid;
+/*  border: 3px white solid;
+  border-radius: 15px;*/
   padding: 6px;
   margin-top: 5px;
-  border-radius: 15px;
   display:inline;
-
+  color: white;
+  font-family: 'Shadows Into Light', cursive;
 }
 
-.renderedFavs {
-  overflow-y: auto;
-  height: 100%;
+.eachFav:hover {
+  background-color: #B6DC8F;
 }
 
 .vcenter {
     display: inline-block;
     vertical-align: middle;
     float: none;
+}
+
+.dynamicFriend span {
+  color: white;
+  font-family: 'Shadows Into Light', cursive;
 }

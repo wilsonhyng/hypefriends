@@ -73,7 +73,7 @@ class AddFriend extends React.Component {
           <input type="submit" value="Submit" />
         </form>
       
-        <h3>Favorites from {this.state.value} {this.state.currentFriend}</h3>
+        <h3 className='dynamicFriend'>Favorites from <span>{this.state.value} {this.state.currentFriend}</span></h3>
 
           <div className='renderedFavs'>
             {this.state.favorites !== 'error' &&

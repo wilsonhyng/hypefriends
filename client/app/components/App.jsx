@@ -2,9 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 
-import AwesomeComponent from './AwesomeComponent.jsx';
-import GetAPI from './GetAPI.jsx';
-
 import AddFriend from './AddFriend.jsx';
 
 class App extends React.Component {
@@ -50,7 +47,7 @@ class App extends React.Component {
           </div>
 
           <div className='col-xs-4 vcenter'>
-            <h1>Hype<span>Friends</span></h1>
+            <h1>HYPE<span>Friends</span></h1>
           </div>
 
 
@@ -66,15 +63,11 @@ class App extends React.Component {
         </div>
 
 
-
-
         <div id='addFriend'>
           <AddFriend 
           updateFriends={this.updateFriends.bind(this)}
           />
         </div>
-
-
 
 
       </div>
