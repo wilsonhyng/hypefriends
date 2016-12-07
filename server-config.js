@@ -2,10 +2,7 @@ var express = require('express');
 var request = require('request');
 var Promise = require('bluebird');
 var app = express();
-
-
 var bodyParser = require('body-parser');
-
 
 // Mongodb stuff
 var mongooseConnection = require('./App/config.js');
@@ -25,16 +22,12 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 app.post('/addFriend', (req, res) => {
-  // console.log('POST FROM CLIENT', req.body.data);
   var username = ({friend: req.body.data});
-  // console.log(username);
   var url = 'https://api.hypem.com/v2/users/' + req.body.data + '/favorites?page=1&count=10&key=swagger';  
 
   request.get(url, (error, response, body) => {
     if (!error && response.statusCode === 200) {
-      // console.log('SEND THIS SHIT BACK');
-      // console.log(JSON.parse(body));
-      res.send(JSON.parse(body));
+      res.status(200).send(JSON.parse(body));
 
       Friend.findOne(username, (err, found) => {
         if (!found) {
@@ -51,7 +44,7 @@ app.post('/addFriend', (req, res) => {
       });
     } else {
       console.log('No such username');
-      res.send('error');
+      res.status(404).send('error');
     }
   });
   // res.status(201).redirect('/');
@@ -66,9 +59,9 @@ app.post('/displayFriends', (req, res) => {
     });
 
     if (friendMap !== {}) {
-      res.send(friendMap);  
+      res.status(200).send(friendMap);  
     } else {
-      res.send('none');
+      res.status(404).send('none');
     }
   });
 });

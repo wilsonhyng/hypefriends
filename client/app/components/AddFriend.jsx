@@ -32,7 +32,6 @@ class AddFriend extends React.Component {
         let displayFriend = this.state.value; 
         this.setState({currentFriend: displayFriend});
 
-        
         axios.post('/displayFriends')
           .then((response) => {
             const friends = response.data;
