@@ -54,9 +54,9 @@ class App extends React.Component {
           </div>
 
 
-          <div className='col-xs-4 vcenter'>
+          <div className='col-xs-4 vcenter friends'>
             <h3>Friends</h3>
-            <div className='text-center friends'>
+            <div className='text-center'>
               {this.state.friends.map(friend => 
                     <div className='eachFriend'>{friend}</div>
               )}

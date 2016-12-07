@@ -22371,7 +22371,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col-xs-4 vcenter' },
+	            { className: 'col-xs-4 vcenter friends' },
 	            _react2.default.createElement(
 	              'h3',
 	              null,
@@ -22379,7 +22379,7 @@
 	            ),
 	            _react2.default.createElement(
 	              'div',
-	              { className: 'text-center friends' },
+	              { className: 'text-center' },
 	              this.state.friends.map(function (friend) {
 	                return _react2.default.createElement(
 	                  'div',

@@ -12,9 +12,7 @@ h3 {
   background-color: #83C441;
 }
 
-#friends {
-  /*text-align:center;*/
-}
+
 
 #addFriend {
   text-align: center;
@@ -40,18 +38,22 @@ ul {
 }
 
 .eachFav {
-  border: 5px black solid;
+  border: 3px black solid;
+  border-radius: 25px;
   padding: 2%;
 }
 
 .eachFriend {
-/*  border: 3px black solid;
-  padding-bottom: 5px;*/
+  border: 3px black solid;
+  padding: 6px;
+  margin-top: 5px;
+  border-radius: 15px;
+  display:inline;
+
 }
 
 .renderedFavs {
-  overflow-y: scroll;
-
+  overflow-y: auto;
   height: 100%;
 }
 
