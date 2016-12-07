@@ -3,16 +3,17 @@ body {
 }
 
 h1 {
-  background-color: #83C441;
   text-align: center;
+}
+
+h1 span {
+  color: white;
 }
 
 h3 {
   text-align: center;
-  background-color: #83C441;
+  /*color: white;*/
 }
-
-
 
 #addFriend {
   text-align: center;
@@ -33,7 +34,7 @@ ul {
 }
 
 #hypemlogo {
-  width:40%; /* you can use % */
+  width:40%;
   height: auto;
 }
 
@@ -41,10 +42,16 @@ ul {
   border: 3px black solid;
   border-radius: 25px;
   padding: 2%;
+  font-size: 40px;
+}
+
+.renderedFavs img {
+  width:40%;
+  height: auto;
 }
 
 .eachFriend {
-  border: 3px black solid;
+  border: 3px white solid;
   padding: 6px;
   margin-top: 5px;
   border-radius: 15px;

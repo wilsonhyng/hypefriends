@@ -47,7 +47,6 @@ app.post('/addFriend', (req, res) => {
       res.status(404).send('error');
     }
   });
-  // res.status(201).redirect('/');
 });
 
 app.post('/displayFriends', (req, res) => {

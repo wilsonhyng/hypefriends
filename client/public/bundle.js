@@ -22366,7 +22366,12 @@
 	            _react2.default.createElement(
 	              'h1',
 	              null,
-	              'HypeFriends'
+	              'Hype',
+	              _react2.default.createElement(
+	                'span',
+	                null,
+	                'Friends'
+	              )
 	            )
 	          ),
 	          _react2.default.createElement(

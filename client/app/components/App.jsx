@@ -50,7 +50,7 @@ class App extends React.Component {
           </div>
 
           <div className='col-xs-4 vcenter'>
-            <h1>HypeFriends</h1>
+            <h1>Hype<span>Friends</span></h1>
           </div>
 
 
