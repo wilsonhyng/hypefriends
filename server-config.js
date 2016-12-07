@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 app.get('/', function(req, res) {
-  res.render('./client/app/index.html');
+  res.render('./client/index.html');
 });
 
 
