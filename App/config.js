@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+var env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 
 if (env === 'development') {
   mongoose.connect('mongodb://localhost/HypeFriends');
