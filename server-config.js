@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'client')));
 
 
 
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + './client');
 app.engine('html', engines.mustache);
 app.set('view engine', 'html');
 
