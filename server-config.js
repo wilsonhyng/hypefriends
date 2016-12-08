@@ -14,7 +14,7 @@ var Friend = require('./App/Models/Friend.js');
 
 // Path to help express serve public files
 var path = require('path');
-var clientPath = path.join(process.env.PWD, 'client');
+var clientPath = path.join(__dirname, 'client');
 console.log('clientPath', clientPath);
 app.use(express.static(clientPath));
 
@@ -28,9 +28,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 })); 
 
 
-// app.get('/', function(req, res) {
-//   res.sendFile('./client/index.html');
-// });
+app.get('/', function(req, res) {
+  res.send('helloworld');
+});
 
 // app.use('/', express.static(path.join(__dirname, 'client')));
 
