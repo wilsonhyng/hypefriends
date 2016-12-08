@@ -1,12 +1,14 @@
 var mongoose = require('mongoose');
 
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
+var host = (process.env.DATABASE_URL || 'mongodb://localhost/HypeFriends');
 
-if (env === 'development') {
-  mongoose.connect('mongodb://localhost/HypeFriends');
-} else {
-  mongoose.connect('mongodb://friends:wilson@ds127878.mlab.com:27878/hypefriends');
-}
+mongoose.connect(host);
+
+// if (env === 'development') {
+//   mongoose.connect('mongodb://localhost/HypeFriends');
+// } else {
+//   mongoose.connect('mongodb://friends:wilson@ds127878.mlab.com:27878/hypefriends');
+// }
 
 
 var mongooseConnection = mongoose;
