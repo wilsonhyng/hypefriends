@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 
 app.get('/', function(req, res) {
-  res.render('./client/index.html');
+  res.sendFile('./client/index.html');
 });
 
 app.post('/addFriend', (req, res) => {
