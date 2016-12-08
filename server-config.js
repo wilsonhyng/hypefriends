@@ -15,7 +15,7 @@ var Friend = require('./App/Models/Friend.js');
 // Path to help express serve public files
 var path = require('path');
 
-app.use(express.static(path.join(__dirname, 'client')));
+app.use(express.static(path.join(__dirname, './client')));
 
 // app.set('views', __dirname + './client');
 // app.engine('html', engines.mustache);
@@ -31,9 +31,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 //   res.sendFile('./client/index.html');
 // });
 
-app.use('/', express.static(path.join(__dirname, 'client')));
+// app.use('/', express.static(path.join(__dirname, 'client')));
 
-app.get('/', (req, res) => { res.sendFile(path.join(__dirname, 'index.html')); });
+// app.get('/', (req, res) => { res.sendFile(path.join(__dirname, '..', 'client', 'index.html')); });
 
 app.post('/addFriend', (req, res) => {
   var username = ({friend: req.body.data});
