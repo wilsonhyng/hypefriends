@@ -14,7 +14,7 @@ var Friend = require('./App/Models/Friend.js');
 
 // Path to help express serve public files
 var path = require('path');
-var clientPath = path.join(__dirname, 'client');
+var clientPath = path.join(process.env.PWD, 'client');
 console.log('clientPath', clientPath);
 app.use(express.static(clientPath));
 
