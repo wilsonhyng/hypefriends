@@ -4,7 +4,7 @@ var Promise = require('bluebird');
 const env = require('get-env')();
 var app = express();
 var bodyParser = require('body-parser');
-var engines = require('consolidate');
+// var engines = require('consolidate');
 
 // Mongodb stuff
 var mongooseConnection = require('./App/config.js');
@@ -14,8 +14,9 @@ var Friend = require('./App/Models/Friend.js');
 
 // Path to help express serve public files
 var path = require('path');
-
-app.use(express.static(path.join(__dirname, './client')));
+var clientPath = path.join(__dirname, 'client');
+console.log('clientPath', clientPath);
+app.use(express.static(clientPath));
 
 // app.set('views', __dirname + './client');
 // app.engine('html', engines.mustache);

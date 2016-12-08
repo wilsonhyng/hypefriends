@@ -77,12 +77,12 @@ class AddFriend extends React.Component {
 
           <div className='renderedFavs'>
             {this.state.favorites !== 'error' &&
-              this.state.favorites.map(favorite => 
-                <div className='text-center eachFav'>
+              this.state.favorites.map((favorite, index) => 
+                <div className='text-center eachFav' key={index}>
 
-                <a target='_blank' href={favorite.posturl}>{favorite.artist} - {favorite.title}</a>
+                  <a target='_blank' href={favorite.posturl}>{favorite.artist} - {favorite.title}</a>
 
-                <img src={favorite['thumb_url_large']}></img>
+                  <img src={favorite['thumb_url_large']}></img>
 
                 </div>
                 )}
