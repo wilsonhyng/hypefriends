@@ -7,7 +7,7 @@ class AddFriend extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: 'wily6',
       favorites: [],
       currentFriend: ''
     };
@@ -68,7 +68,7 @@ class AddFriend extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>
             Your HYPE friend: 
-            <input name="friend" type="text" value={this.state.value} onChange={this.handleChange} />
+            <input name="friend" type="text" value={this.state.value} onChange={this.handleChange}/>
           </label>
           <input type="submit" value="Submit" />
         </form>
