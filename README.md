@@ -1,2 +1,2 @@
-#mvp
-This is a project I completed as a student at [hackreactor](http://hackreactor.com). 
+#HypeFriends
+React project done in 1 day Hackathon
